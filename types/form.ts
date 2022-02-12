@@ -2,13 +2,13 @@ import { Question } from '@/types/question'
 import { Response } from '@/types/response'
 
 export interface Form {
-    id: string
+    _id: string
     name: string
     category: string
-    questions: Array<Question>
+    questions: Array<Question> | Array<Omit<Question, '_id'>>
     responses: Array<Response>
-    createdAt: number
-    EditedAt: number
+    createdAt: Date
+    EditedAt: Date
     creatorTag: string
     isPublic: boolean
 }

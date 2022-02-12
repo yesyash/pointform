@@ -1,7 +1,7 @@
 export interface Response {
-    id: string
+    _id: string
     questionId: string
     answerId: string
-    startedOn: number
-    finishedAt: number
+    startedOn: Date
+    finishedAt: Date
 }

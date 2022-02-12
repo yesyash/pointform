@@ -1,11 +1,11 @@
 export interface Option {
-    id: string
+    _id: string
     value: string
     weight?: number
 }
 
 export interface Question {
-    id: string
+    _id: string
     question: string
     type: 'mcq' | 'tf'
     options: Array<Option>
