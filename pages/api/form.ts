@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { CreateFormType, UpdateFormType } from '@/types/form'
 
-import { connectToDb } from '@/utils/mongo'
+import connectToDb from '@/utils/connect-to-db'
 import { getOneForm } from '@/utils/form/get-one-form'
 import { createForm } from '@/utils/form/create-form'
 import { updateForm } from '@/utils/form/update-form'

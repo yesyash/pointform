@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { connectToDb } from '@/utils/mongo'
+import connectToDb from '@/utils/connect-to-db'
 import { getAllForms } from '@/utils/form/get-all-forms'
 
 export default async function handler(

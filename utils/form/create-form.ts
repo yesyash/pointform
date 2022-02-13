@@ -7,25 +7,32 @@ export async function createForm(
     form: CreateFormType,
     collection: Collection
 ): Promise<ApiResponse> {
-    let formToInsert: Omit<Form, '_id'> = {
-        ...form,
-        responses: [],
-        createdAt: new Date(),
-        updatedAt: new Date(),
-    }
-
-    let result = await collection.insertOne(formToInsert)
-
-    if (result.acknowledged) {
-        return {
-            success: true,
-            msg: 'Form created successfully',
-            data: { _id: result.insertedId },
+    try {
+        let formToInsert: Omit<Form, '_id'> = {
+            ...form,
+            responses: [],
+            createdAt: new Date(),
+            updatedAt: new Date(),
         }
-    } else {
+
+        let result = await collection.insertOne(formToInsert)
+
+        if (result.acknowledged) {
+            return {
+                success: true,
+                msg: 'Form created successfully',
+                data: { _id: result.insertedId },
+            }
+        } else {
+            return {
+                success: false,
+                msg: 'Unable to create form please try again',
+            }
+        }
+    } catch (error) {
         return {
             success: false,
-            msg: 'Unable to create form please try again',
+            msg: 'Error creating form please try again',
         }
     }
 }
