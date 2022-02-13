@@ -1,39 +1,32 @@
 import { Collection, ObjectId } from 'mongodb'
 
-import { Form } from '@/types/form'
+import { Form, UpdateFormType } from '@/types/form'
+import { ApiResponse } from '@/types/api-response'
 
-export async function updateFrom(formId: Form['_id'], collection: Collection) {
-    let form: Omit<Form, '_id'> = {
-        name: 'testform',
-        category: 'test',
-        questions: [
+export async function updateForm(
+    formId: Form['_id'],
+    formData: UpdateFormType,
+    collection: Collection
+): Promise<ApiResponse> {
+    try {
+        let updateDoc = await collection.updateOne(
+            { _id: new ObjectId(formId) },
             {
-                question: 'hello',
-                type: 'mcq',
-                options: [{ _id: '12', value: '134' }],
-                required: false,
-                order: 1,
-            },
-        ],
-        responses: [
-            {
-                _id: '123',
-                questionId: '123',
-                answerId: '124',
-                startedOn: new Date(),
-                finishedAt: new Date(),
-            },
-        ],
-        createdAt: new Date(),
-        EditedAt: new Date(),
-        creatorTag: 'testDev',
-        isPublic: false,
+                $set: formData,
+                $currentDate: {
+                    updatedAt: true,
+                },
+            }
+        )
+
+        if (updateDoc.matchedCount === 0) {
+            return { success: false, msg: 'Form not found' }
+        }
+
+        if (updateDoc.acknowledged && updateDoc.matchedCount === 1) {
+            return { success: true, msg: 'Form updated successfully' }
+        }
+    } catch (error) {
+        return { success: false, msg: 'Error updating form details' }
     }
-
-    let updateDoc = await collection.findOneAndUpdate(
-        { _id: new ObjectId(formId) },
-        form
-    )
-
-    return updateDoc
 }

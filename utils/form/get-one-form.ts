@@ -1,4 +1,4 @@
-import { Collection } from 'mongodb'
+import { Collection, ObjectId } from 'mongodb'
 
 import { Form } from '@/types/form'
 import { ApiResponse } from '@/types/api-response'
@@ -8,7 +8,7 @@ export async function getOneForm(
     collection: Collection
 ): Promise<ApiResponse> {
     try {
-        let formData = await collection.findOne({ _id: new Object(formId) })
+        let formData = await collection.findOne({ _id: new ObjectId(formId) })
 
         if (formData === null) {
             return { success: false, msg: 'No form found' }
