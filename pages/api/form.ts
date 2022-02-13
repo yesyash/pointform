@@ -41,7 +41,7 @@ export default async function handler(
             }
             break
 
-        case 'PUT':
+        case 'PATCH':
             let idToUpdate: string = req.body.id
             let udpdatedFormData: UpdateFormType = req.body.data
 
@@ -69,6 +69,7 @@ export default async function handler(
             }
             break
         default:
+            res.status(405).json({ success: false, msg: 'Method not allowed' })
             break
     }
 }
