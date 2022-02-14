@@ -7,4 +7,44 @@
     padding: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica', -apple-system,
+        BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, 'Open Sans',
+        'Helvetica Neue', sans-serif;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local(''), url('../fonts/inter-v7-latin-regular.woff2') format('woff2'),
+        url('../fonts/inter-v7-latin-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local(''), url('../fonts/inter-v7-latin-500.woff2') format('woff2'),
+        url('../fonts/inter-v7-latin-500.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local(''), url('../fonts/inter-v7-latin-600.woff2') format('woff2'),
+        url('../fonts/inter-v7-latin-600.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local(''), url('../fonts/inter-v7-latin-700.woff2') format('woff2'),
+        url('../fonts/inter-v7-latin-700.woff') format('woff');
 }
