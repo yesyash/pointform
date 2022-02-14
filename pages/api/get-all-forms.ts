@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import connectToDb from '@/utils/connect-to-db'
-import { getAllForms } from '@/utils/form/get-all-forms'
+import connectToDb from '@/helpers/connect-to-db'
+import { getAllForms } from '@/helpers/forms/get-all-forms'
 
 export default async function handler(
     req: NextApiRequest,

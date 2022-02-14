@@ -2,11 +2,11 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { CreateFormType, UpdateFormType } from '@/types/form'
 
-import connectToDb from '@/utils/connect-to-db'
-import { getOneForm } from '@/utils/form/get-one-form'
-import { createForm } from '@/utils/form/create-form'
-import { updateForm } from '@/utils/form/update-form'
-import { deleteForm } from '@/utils/form/delete-form'
+import connectToDb from '@/helpers/connect-to-db'
+import { getOneForm } from '@/helpers/forms/get-one-form'
+import { createForm } from '@/helpers/forms/create-form'
+import { updateForm } from '@/helpers/forms/update-form'
+import { deleteForm } from '@/helpers/forms/delete-form'
 
 export default async function handler(
     req: NextApiRequest,
