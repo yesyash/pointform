@@ -26,7 +26,7 @@ const Signin = () => {
                             Pointform
                         </h1>
                         <p className="text-lg">
-                            We are glad you are here. <br /> Let's get you
+                            We are glad you are here. <br /> Let{"'"}s get you
                             signed in!
                         </p>
                     </div>
@@ -36,7 +36,12 @@ const Signin = () => {
                         type="button"
                         onClick={handleSignin}
                     >
-                        <Image width={20} height={20} src="/google-logo.png" />
+                        <Image
+                            width={20}
+                            height={20}
+                            src="/google-logo.png"
+                            alt="Google icon"
+                        />
                         <span className="flex-1 text-center ">
                             Sign in with Google
                         </span>
